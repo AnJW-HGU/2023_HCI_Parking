@@ -68,6 +68,7 @@ flutter:
     - asset/logo_handong.svg
     - asset/logo_handong.png
     - asset/background.svg
+    - asset/background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -80,12 +81,30 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: fonts/Pretendard-Black.otf
+          style: Black
+        - asset: fonts/Pretendard-Blod.otf
+          style: Blod
+        - asset: fonts/Pretendard-ExtraBlod.otf
+          style: ExtraBlod
+        - asset: fonts/Pretendard-ExtraLight.otf
+          style: ExtraLight
+        - asset: fonts/Pretendard-Light.otf
+          style: Light
+        - asset: fonts/Pretendard-Medium.otf
+          style: Medium
+        - asset: fonts/Pretendard-Regular.otf
+          style: Regular
+        - asset: fonts/Pretendard-SemiBold.otf
+          style: SemiBold
+        - asset: fonts/Pretendard-Thin.otf
+          style: Thin
+    - family: PretendardVariable
+      fonts:
+        - asset: fonts/PretendardVariable.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
