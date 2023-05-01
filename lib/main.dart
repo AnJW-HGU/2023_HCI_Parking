@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         return const MaterialApp(
           title: 'HCI Parking',
           home: SplashScreen(),
+          debugShowCheckedModeBanner: false,
         );
       },
     );
