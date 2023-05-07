@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hci_parking/controller/map_controller.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
 
@@ -15,6 +16,13 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  final MapController _mapController = Get.put(MapController());
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ColorfulSafeArea(
@@ -84,7 +92,26 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
         backgroundColor: whiteColor,
-        body: Center(),
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              // need: Navigation to info screen
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "HDH's empty : ",
+                  style: pretendardRegular20,
+                ),
+                Text(
+                  _mapController.emptyHDH,
+                  style: pretendardRegular20,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
