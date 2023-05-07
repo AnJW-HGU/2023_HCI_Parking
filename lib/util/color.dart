@@ -13,3 +13,5 @@ const appBarColor = Color(0xff3E454D);
 
 const greyColor1 = Color(0xffEEEEEE);
 const greyColor2 = Color(0xff4E4D4D);
+
+Color shadowColor = const Color(0xff000000).withOpacity(0.25);
