@@ -1,6 +1,8 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:hci_parking/screen/map_screen.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
 import 'package:hci_parking/widget/home_buttons_widget.dart';
@@ -92,7 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 37.w,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(const MapScreen());
+                    },
                     child: const HomeButtonsWidget(buttonText: '주차장'),
                   ),
                 ],

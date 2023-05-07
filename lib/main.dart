@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:hci_parking/screen/home_screen.dart';
 import 'package:hci_parking/screen/splash_screen.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return const MaterialApp(
+        return const GetMaterialApp(
           title: 'HCI Parking',
           home: HomeScreen(),
           debugShowCheckedModeBanner: false,
