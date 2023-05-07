@@ -11,37 +11,32 @@ class HomeButtonsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // need: navigation to map page
-      },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            width: 55.r,
-            height: 55.r,
-            decoration: BoxDecoration(
-              color: whiteColor,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: shadowColor,
-                  offset: const Offset(2, 2),
-                  blurRadius: 10,
-                )
-              ],
-            ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          width: 55.r,
+          height: 55.r,
+          decoration: BoxDecoration(
+            color: whiteColor,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: shadowColor,
+                offset: const Offset(2, 2),
+                blurRadius: 10,
+              )
+            ],
           ),
-          SizedBox(
-            height: 4.h,
-          ),
-          Text(
-            buttonText,
-            style: pretendardMedium11,
-          ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 4.h,
+        ),
+        Text(
+          buttonText,
+          style: pretendardMedium11,
+        ),
+      ],
     );
   }
 }
