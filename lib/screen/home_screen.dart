@@ -61,13 +61,67 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Column(
-                        children: const [
-                          // need: user.name
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 12.h,
+                          ),
+                          Text(
+                            '홍길동',
+                            style: pretendardMedium18,
+                          ),
+                          SizedBox(
+                            height: 3.h,
+                          ),
+                          Text(
+                            '22000404',
+                            style: pretendardMedium14.copyWith(
+                              color: primaryColor,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 3.h,
+                          ),
+                          Text(
+                            '전산전자공학부',
+                            style: pretendardMedium14.copyWith(
+                              color: primaryColor,
+                            ),
+                          ),
                         ],
                       ),
+                      SizedBox(
+                        width: 143.w,
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'asset/icons/qr_icon.jpg',
+                            width: 20.r,
+                            height: 20.r,
+                          ),
+                          SizedBox(
+                            width: 14.w,
+                          ),
+                          Image.asset(
+                            'asset/icons/wifi_icon.jpg',
+                            width: 14.r,
+                            height: 10.8.r,
+                          ),
+                          SizedBox(
+                            width: 15.w,
+                          ),
+                          Image.asset(
+                            'asset/icons/bluetooth_icon.jpg',
+                            width: 18.r,
+                            height: 18.r,
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -79,18 +133,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const HomeButtonsWidget(
+                    buttonIcon: 'asset/icons/check_phone_icon.jpg',
+                    buttonWidth: 32,
+                    buttonHeight: 32,
                     buttonText: '출석현황',
                   ),
                   SizedBox(
                     width: 37.w,
                   ),
                   const HomeButtonsWidget(
+                    buttonIcon: 'asset/icons/notification_icon.jpg',
+                    buttonWidth: 26,
+                    buttonHeight: 26,
                     buttonText: '교내주요공지',
                   ),
                   SizedBox(
                     width: 37.w,
                   ),
                   const HomeButtonsWidget(
+                    buttonIcon: 'asset/icons/report_icon.jpg',
+                    buttonWidth: 36,
+                    buttonHeight: 36,
                     buttonText: '원클릭민원',
                   ),
                   SizedBox(
@@ -100,7 +163,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Get.to(const MapScreen());
                     },
-                    child: const HomeButtonsWidget(buttonText: '주차장'),
+                    child: const HomeButtonsWidget(
+                      buttonIcon: 'asset/icons/parking_icon.jpg',
+                      buttonWidth: 30,
+                      buttonHeight: 30,
+                      buttonText: '주차장',
+                    ),
                   ),
                 ],
               )

@@ -4,10 +4,18 @@ import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
 
 class HomeButtonsWidget extends StatelessWidget {
+  final String buttonIcon;
+  final int buttonWidth;
+  final int buttonHeight;
   final String buttonText;
 
-  const HomeButtonsWidget({Key? key, required this.buttonText})
-      : super(key: key);
+  const HomeButtonsWidget({
+    Key? key,
+    required this.buttonIcon,
+    required this.buttonWidth,
+    required this.buttonHeight,
+    required this.buttonText,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +35,13 @@ class HomeButtonsWidget extends StatelessWidget {
                 blurRadius: 10,
               )
             ],
+          ),
+          child: Center(
+            child: Image.asset(
+              buttonIcon,
+              width: buttonWidth.w,
+              height: buttonHeight.w,
+            ),
           ),
         ),
         SizedBox(
