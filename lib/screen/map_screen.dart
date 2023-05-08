@@ -16,7 +16,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  final MapController _mapController = Get.put(MapController());
+  final MapController _mapController = Get.find();
 
   @override
   void initState() {
@@ -92,25 +92,29 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
         backgroundColor: whiteColor,
-        body: Center(
-          child: GestureDetector(
-            onTap: () {
-              // need: Navigation to info screen
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "HDH's empty : ",
-                  style: pretendardRegular20,
+        body: Stack(
+          children: [
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  // need: Navigation to info screen
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "HDH's empty : ",
+                      style: pretendardRegular20,
+                    ),
+                    Text(
+                      _mapController.emptyHDH,
+                      style: pretendardRegular20,
+                    ),
+                  ],
                 ),
-                Text(
-                  _mapController.emptyHDH,
-                  style: pretendardRegular20,
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
