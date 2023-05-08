@@ -30,8 +30,15 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 #### 3-3 objectives
 ### 4. Methods
 #### 4-1 Target user
+    - Our target users are Handong students and faculty who use the Handong Smart campus 
+    application and drive to school and look for a parking space in the crowded morning. The 
+    Handong Smart campus application, which all Handong students use, allows students to access 
+    diverse information in Handong. Since every Handong student has access to this application, it 
+    will be great for our service to provide parking information through this existing 
+    application. Through this application, we can solve the lack of parking lots.
 #### 4-2 technologies
 #### 4-3 interaction (with sequence diagrams and descriptions)
+![KakaoTalk_20230410_231139328.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc75b926-6c1a-49c8-b990-35449d5f9c4f/KakaoTalk_20230410_231139328.jpg)
 ####  4-4 …
 ### 5. Results
 #### 5-1 Screen capture images and descriptions of each screen
