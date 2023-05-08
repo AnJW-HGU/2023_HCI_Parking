@@ -22,12 +22,20 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 ### 2. Representative image (대표 이미지)
 ### 3. Background
 #### 3-1 problems
-    - The problem is that there are not enough parking spaces to accommodate the increase in
+    - Since the COVID-19 situation has come to an end, a lot of students have returned to school 
+    and the number of vehicles increased accordingly. Therefore, an insufficient parking lot 
+    problem aroused. To solve this problem, we came up with the idea to show up parking spaces for 
+    the users so that they can park more efficiently.The problem is that there are not enough 
+    parking spaces to accommodate the increase in
     vehicles, which is causing inconvenience for students, faculty, and staff. This problem is 
     impacting the school's operations, as it is creating delays and frustration for those who are 
     unable to find a parking space, especially in the crowded morning.
 #### 3-2 existing cases, examples, similar studies
 #### 3-3 objectives
+    - The goal of this project is to create a parking service that enables drivers to easily
+    locate available parking spots in Handong Global University's parking lots. This service aims
+    to reduce the time and effort required for drivers to find a parking spot upon arrival.
+
 ### 4. Methods
 #### 4-1 Target user
     - Our target users are Handong students and faculty who use the Handong Smart campus 
@@ -37,8 +45,15 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
     will be great for our service to provide parking information through this existing 
     application. Through this application, we can solve the lack of parking lots.
 #### 4-2 technologies
+    - AI model : SSD MobileNet (https://github.com/qfgaohao/pytorch-ssd)
+    Input Data : Last image frame from Youtube live stream 
+    Used Library : Youtube-dl, FFMPEG
+    Databaase : Firebase
+    Sever : 24 / 7 always activated which run our code unstoppable
+    Flutter : a frame work which work with dart code and developing ios and android application
+    simultaneously
+
 #### 4-3 interaction (with sequence diagrams and descriptions)
-![KakaoTalk_20230410_231139328.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc75b926-6c1a-49c8-b990-35449d5f9c4f/KakaoTalk_20230410_231139328.jpg)
 ####  4-4 …
 ### 5. Results
 #### 5-1 Screen capture images and descriptions of each screen
