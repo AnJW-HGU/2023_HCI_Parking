@@ -22,7 +22,7 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 ### 2. Representative image (대표 이미지)
 ### 3. Background
 #### 3-1 problems
-    - The problem is that there are not enough parking spaces to accommodate  the increase in vehicles, which is causing inconvenience for  students, faculty, and staff. This problem is impacting the school's operations,  as it is creating delays and frustration for those who are  unable to find a parking space, especially in the crowded morning.
+    - The problem is that there are not enough parking spaces to accommodate the increase in</br> vehicles, which is causing inconvenience for students, faculty, and staff. This problem is impacting the school's operations, as it is creating delays and frustration for those who are unable to find a parking space, especially in the crowded morning.
 #### 3-2 existing cases, examples, similar studies
 #### 3-3 objectives
 ### 4. Methods
