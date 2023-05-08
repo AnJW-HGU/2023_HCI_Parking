@@ -17,9 +17,9 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Finding A Parking Space
 examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
--Members
+- Members
     - 김종순 박두현 안지원 옥준용 우욕균 임건호
--Background
+- Background
     - 
 - Title
 - Representative image (대표 이미지)
