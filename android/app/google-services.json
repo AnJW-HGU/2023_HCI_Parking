@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "321386776709",
+    "project_id": "hci2023-92474",
+    "storage_bucket": "hci2023-92474.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321386776709:android:22b87b754db658b2e601ec",
+        "android_client_info": {
+          "package_name": "com.example.hci_parking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321386776709-em8l0ug8lskagdhielf5d912e30mu7ar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzCvy5HbtOtq424EeCcRa1UogaNYRKd6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321386776709-em8l0ug8lskagdhielf5d912e30mu7ar.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "321386776709-fsb3m6abbnmas99qou83nnjs3dv8k2mi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hci.parking"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
