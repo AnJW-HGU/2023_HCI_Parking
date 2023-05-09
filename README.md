@@ -54,7 +54,7 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
     simultaneously
 
 #### 4-3 interaction (with sequence diagrams and descriptions)
-    ![KakaoTalk_20230410_231239285](https://github.com/AnJW-HGU/2023_HCI_Parking/assets/82192969/df3d8071-bd7e-4b02-857f-8aef93d6cc29)
+![KakaoTalk_20230410_231239285](https://github.com/AnJW-HGU/2023_HCI_Parking/assets/82192969/df3d8071-bd7e-4b02-857f-8aef93d6cc29)
 ####  4-4 …
 ### 5. Results
 #### 5-1 Screen capture images and descriptions of each screen
