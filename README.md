@@ -18,11 +18,11 @@ samples, guidance on mobile development, and a full API reference.
 ## Finding A Parking Space
 examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 ### 1. Members
-    - 김종순 박두현 안지원 옥준용 우욕균 임건호
+    김종순 박두현 안지원 옥준용 우욕균 임건호
 ### 2. Representative image (대표 이미지)
 ### 3. Background
 #### 3-1 problems
-    - Since the COVID-19 situation has come to an end, a lot of students have returned to school 
+    Since the COVID-19 situation has come to an end, a lot of students have returned to school 
     and the number of vehicles increased accordingly. Therefore, an insufficient parking lot 
     problem aroused. To solve this problem, we came up with the idea to show up parking spaces for 
     the users so that they can park more efficiently.The problem is that there are not enough 
@@ -32,20 +32,20 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
     unable to find a parking space, especially in the crowded morning.
 #### 3-2 existing cases, examples, similar studies
 #### 3-3 objectives
-    - The goal of this project is to create a parking service that enables drivers to easily
+    The goal of this project is to create a parking service that enables drivers to easily
     locate available parking spots in Handong Global University's parking lots. This service aims
     to reduce the time and effort required for drivers to find a parking spot upon arrival.
 
 ### 4. Methods
 #### 4-1 Target user
-    - Our target users are Handong students and faculty who use the Handong Smart campus 
+    Our target users are Handong students and faculty who use the Handong Smart campus 
     application and drive to school and look for a parking space in the crowded morning. The 
     Handong Smart campus application, which all Handong students use, allows students to access 
     diverse information in Handong. Since every Handong student has access to this application, it 
     will be great for our service to provide parking information through this existing 
     application. Through this application, we can solve the lack of parking lots.
 #### 4-2 technologies
-    - AI model : SSD MobileNet (https://github.com/qfgaohao/pytorch-ssd)
+    AI model : SSD MobileNet (https://github.com/qfgaohao/pytorch-ssd)
     Input Data : Last image frame from Youtube live stream 
     Used Library : Youtube-dl, FFMPEG
     Databaase : Firebase
