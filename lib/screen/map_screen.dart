@@ -110,9 +110,21 @@ class _MapScreenState extends State<MapScreen> {
                   "HDH's empty : ",
                   style: pretendardRegular20,
                 ),
-                Text(
-                  _mapController.emptyHDH,
-                  style: pretendardRegular20,
+                StreamBuilder(
+                  stream: _mapController.streamHDH,
+                  builder: (context, snapshot) {
+                    if (snapshot.data != null) {
+                      return Text(
+                        snapshot.data!.empty.toString(),
+                        style: pretendardRegular20,
+                      );
+                    } else {
+                      return Text(
+                        '0',
+                        style: pretendardRegular20,
+                      );
+                    }
+                  },
                 ),
               ],
             ),
