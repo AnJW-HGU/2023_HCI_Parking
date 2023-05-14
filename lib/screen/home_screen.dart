@@ -7,6 +7,7 @@ import 'package:hci_parking/screen/map_screen.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
 import 'package:hci_parking/widget/home_buttons_widget.dart';
+import 'package:hci_parking/widget/home_notice_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -171,7 +172,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 32.h,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: HomeNoticeWidget.schoolNoticeWidget,
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: HomeNoticeWidget.schoolTableWidget,
+              ),
             ],
           ),
         ),
