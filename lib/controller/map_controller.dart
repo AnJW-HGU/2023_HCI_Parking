@@ -15,7 +15,7 @@ class MapController extends GetxController {
     update();
     streamHDH.forEach((element) {
       if (element.first.empty != null) {
-        emptyHDH = element.first.empty!;
+        emptyHDH = element.last.empty!;
         update();
       }
     });

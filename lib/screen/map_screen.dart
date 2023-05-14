@@ -1,9 +1,8 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hci_parking/controller/map_controller.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
@@ -17,9 +16,16 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final MapController _mapController = Get.find();
+  late GoogleMapController _googleMapController;
+
+  void _onMapCreated(GoogleMapController controller) {
+    _googleMapController = controller;
+  }
 
   @override
   void initState() {
+    _mapController.init();
+
     super.initState();
   }
 
@@ -92,30 +98,56 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
         backgroundColor: whiteColor,
-        body: Stack(
-          children: [
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  // need: Navigation to info screen
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "HDH's empty : ",
-                      style: pretendardRegular20,
-                    ),
-                    Text(
-                      _mapController.emptyHDH,
-                      style: pretendardRegular20,
-                    ),
-                  ],
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              // need: Navigation to info screen
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "HDH's empty : ",
+                  style: pretendardRegular20,
                 ),
-              ),
+                Text(
+                  _mapController.emptyHDH,
+                  style: pretendardRegular20,
+                ),
+              ],
             ),
-          ],
+          ),
         ),
+        // body: Stack(
+        //   children: [
+        //     Center(
+        //       child: GestureDetector(
+        //         onTap: () {
+        //           // need: Navigation to info screen
+        //         },
+        //         child: Row(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           children: [
+        //             Text(
+        //               "HDH's empty : ",
+        //               style: pretendardRegular20,
+        //             ),
+        //             Text(
+        //               _mapController.emptyHDH,
+        //               style: pretendardRegular20,
+        //             ),
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //     const GoogleMap(
+        //       initialCameraPosition: CameraPosition(
+        //         target: LatLng(45.521563, -122.677433),
+        //         zoom: 11.0,
+        //       ),
+        //     )
+        //   ],
+        // ),
       ),
     );
   }
