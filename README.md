@@ -91,6 +91,7 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
       
 ### 5. Results
 #### 5-1 Screen capture images and descriptions of each screen
+    스크린샷: 서버, firebase, application 단계마다
 #### 5-2 User test and results
 #### 5-3 Final demos (photos and videos)
 ### 6. Conclusion
