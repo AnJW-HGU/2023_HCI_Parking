@@ -70,6 +70,7 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 
 #### 4-3 interaction (with sequence diagrams and descriptions)
 ![KakaoTalk_20230410_231239285](https://github.com/AnJW-HGU/2023_HCI_Parking/assets/82192969/df3d8071-bd7e-4b02-857f-8aef93d6cc29)
+
      1. Human Action: Run the Handong Smart Campus application
         Computer's ACtion: Shows the home screen of the application. The main screen shows diverse 
         menus such as “Attendance”, “Major school Notification”, “One click complaints” and our 
