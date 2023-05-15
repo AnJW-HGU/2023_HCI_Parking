@@ -26,10 +26,10 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
     and the number of vehicles increased accordingly. Therefore, an insufficient parking lot 
     problem aroused. To solve this problem, we came up with the idea to show up parking spaces for 
     the users so that they can park more efficiently.The problem is that there are not enough 
-    parking spaces to accommodate the increase in
-    vehicles, which is causing inconvenience for students, faculty, and staff. This problem is 
-    impacting the school's operations, as it is creating delays and frustration for those who are 
-    unable to find a parking space, especially in the crowded morning.
+    parking spaces to accommodate the increase in vehicles, which is causing inconvenience for 
+    students, faculty, and staff. This problem is impacting the school's operations, as it is 
+    creating delays and frustration for those who are unable to find a parking space, especially in 
+    the crowded morning.
 #### 3-2 existing cases, examples, similar studies
     There are already various services available that provide real-time parking space information. 
     Some well-known examples include "ParkWhiz", "SpotHero", "ParkMobile", and "ParkMe". These 
@@ -70,6 +70,19 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 
 #### 4-3 interaction (with sequence diagrams and descriptions)
 ![KakaoTalk_20230410_231239285](https://github.com/AnJW-HGU/2023_HCI_Parking/assets/82192969/df3d8071-bd7e-4b02-857f-8aef93d6cc29)
+     1. Human Action: Run the Handong Smart Campus application
+        Computer's ACtion: Shows the home screen of the application. The main screen shows diverse 
+        menus such as “Attendance”, “Major school Notification”, “One click complaints” and our 
+        tap, “Parking” section.
+     2. Human Action: Press the Parking button on the app
+        Computer's Action: The Handong Campus map screen appears and shows up the available parking 
+        space by each parking lot on the campus. This is done by the machine learning algorithm 
+        which classifies the car image on the live video of the parking lot. After it is 
+        distinguished, the data is sent
+      3. Human Action: When the user sets up the notification button, in a specific time period, the app gives s 
+         notifications
+        
+
 ####  4-4 …
 ### 5. Results
 #### 5-1 Screen capture images and descriptions of each screen
@@ -80,5 +93,4 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 #### 6-2 limitation and future works
 ### 7. References
     https://github.com/chuanqi305/MobileNet-SSD
-
 ### 8. Source codes and outputs
