@@ -79,11 +79,15 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
         space by each parking lot on the campus. This is done by the machine learning algorithm 
         which classifies the car image on the live video of the parking lot. After it is 
         distinguished, the data is sent
-      3. Human Action: When the user sets up the notification button, in a specific time period, the app gives s 
-         notifications
-        
-
-####  4-4 …
+      3. Human Action: When the user sets up the notification button, in a specific time period, 
+         the app gives notifications.
+         Computer's Action: Based on the user data, the application suggests whether the user 
+         drives or not to the school
+      4. Human Action: Press the number of parking places available on the icon shown on the map
+          Computer's Action: The computer calculates based on the statistical data collected 
+          through the users, and provides information about the parking space and which time will 
+          have the higher chances of succeeding parking.
+      
 ### 5. Results
 #### 5-1 Screen capture images and descriptions of each screen
 #### 5-2 User test and results
