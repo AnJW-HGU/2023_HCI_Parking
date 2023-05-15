@@ -31,6 +31,21 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
     impacting the school's operations, as it is creating delays and frustration for those who are 
     unable to find a parking space, especially in the crowded morning.
 #### 3-2 existing cases, examples, similar studies
+    There are already various services available that provide real-time parking space information. 
+    Some well-known examples include "ParkWhiz", "SpotHero", "ParkMobile", and "ParkMe". These 
+    services provide information on available parking spots and allow users to reserve a parking 
+    space in their desired location. Companies such as "Park Assist" and "Smart Parking" use 
+    cameras within parking lots to detect available parking spaces in real-time and provide this 
+    information to users.
+    In addition to providing real-time parking space information, there are also similar studies 
+    being conducted. For example, "ParkNet" is a research project that uses deep learning models 
+    for real-time parking space detection. The model detects available parking spaces based on the 
+    video input from cameras in the parking lot.
+    "ParkEyes" is another service that combines cameras, IoT sensors, and AI technology to provide 
+    real-time information on the location of parked cars and available parking spaces within a 
+    parking lot. This service helps users easily find their parked car within the parking lot.
+    By referring to similar approaches used in these existing cases, this project can be developed 
+    further.
 #### 3-3 objectives
     The goal of this project is to create a parking service that enables drivers to easily
     locate available parking spots in Handong Global University's parking lots. This service aims
@@ -64,4 +79,6 @@ examples: https://handonghci.github.io/Courses/StudentProjects/HCI.html
 #### 6-1 contributions
 #### 6-2 limitation and future works
 ### 7. References
+    https://github.com/chuanqi305/MobileNet-SSD
+
 ### 8. Source codes and outputs
