@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +21,8 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   final MapController _mapController = Get.find();
   late GoogleMapController _googleMapController;
+  Set<Marker> markers = <Marker>{};
+  final markerKey = GlobalKey();
 
   void _onMapCreated(GoogleMapController controller) {
     _googleMapController = controller;
@@ -28,6 +33,62 @@ class _MapScreenState extends State<MapScreen> {
     _mapController.init();
 
     super.initState();
+  }
+
+  Future<Set<Marker>> getmarkers({required String empty}) async {
+    const LatLng showLocation = LatLng(36.103783, 129.388944);
+
+    final Uint8List markerIcon = await getBytesFromCanvas(empty: empty);
+
+    setState(() {
+      markers.add(Marker(
+        markerId: MarkerId(showLocation.toString()),
+        position: showLocation,
+        infoWindow: const InfoWindow(
+          title: '현동홀',
+        ),
+        icon: BitmapDescriptor.fromBytes(markerIcon),
+        onTap: () {
+          Get.to(const InfoScreen());
+        },
+      ));
+    });
+
+    return markers;
+  }
+
+  Future<Uint8List> getBytesFromCanvas({required String empty}) async {
+    final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
+    final Canvas canvas = Canvas(pictureRecorder);
+    final Paint paint = Paint()..color = primaryColor;
+    const Radius radius = Radius.circular(80);
+    canvas.drawRRect(
+        RRect.fromRectAndCorners(
+          Rect.fromLTWH(0.0, 0.0, 80.toDouble(), 80.toDouble()),
+          topLeft: radius,
+          topRight: radius,
+          bottomLeft: radius,
+          bottomRight: radius,
+        ),
+        paint);
+
+    TextPainter painter = TextPainter(textDirection: TextDirection.ltr);
+    painter.text = TextSpan(
+      text: empty,
+      style: pretendardRegular20.copyWith(
+        color: whiteColor,
+        fontSize: 40,
+      ),
+    );
+
+    painter.layout();
+    painter.paint(
+        canvas,
+        Offset((80 * 0.5) - painter.width * 0.5,
+            (80 * .5) - painter.height * 0.5));
+    final img = await pictureRecorder.endRecording().toImage(80, 80);
+    final data = await img.toByteData(format: ui.ImageByteFormat.png);
+    return data!.buffer.asUint8List();
   }
 
   @override
@@ -99,68 +160,30 @@ class _MapScreenState extends State<MapScreen> {
           ),
         ),
         backgroundColor: whiteColor,
-        body: Center(
-          child: GestureDetector(
-            onTap: () {
-              Get.to(const InfoScreen());
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "HDH's empty : ",
-                  style: pretendardRegular20,
-                ),
-                StreamBuilder(
-                  stream: _mapController.streamHDH,
-                  builder: (context, snapshot) {
-                    if (snapshot.data != null) {
-                      return Text(
-                        snapshot.data!.empty.toString(),
-                        style: pretendardRegular20,
-                      );
-                    } else {
-                      return Text(
-                        '0',
-                        style: pretendardRegular20,
-                      );
-                    }
-                  },
-                ),
-              ],
-            ),
-          ),
+        body: StreamBuilder(
+          stream: _mapController.streamHDH,
+          builder: (context, snapshot) {
+            if (snapshot.data != null) {
+              getmarkers(empty: snapshot.data!.empty.toString());
+            } else {
+              getmarkers(empty: '0');
+            }
+            return GoogleMap(
+              zoomGesturesEnabled: true,
+              initialCameraPosition: const CameraPosition(
+                target: LatLng(36.103350, 129.388625),
+                zoom: 17.0,
+              ),
+              mapType: MapType.normal,
+              markers: markers,
+              onMapCreated: (controller) {
+                setState(() {
+                  _onMapCreated(controller);
+                });
+              },
+            );
+          },
         ),
-        // body: Stack(
-        //   children: [
-        //     Center(
-        //       child: GestureDetector(
-        //         onTap: () {
-        //           // need: Navigation to info screen
-        //         },
-        //         child: Row(
-        //           mainAxisAlignment: MainAxisAlignment.center,
-        //           children: [
-        //             Text(
-        //               "HDH's empty : ",
-        //               style: pretendardRegular20,
-        //             ),
-        //             Text(
-        //               _mapController.emptyHDH,
-        //               style: pretendardRegular20,
-        //             ),
-        //           ],
-        //         ),
-        //       ),
-        //     ),
-        //     const GoogleMap(
-        //       initialCameraPosition: CameraPosition(
-        //         target: LatLng(45.521563, -122.677433),
-        //         zoom: 11.0,
-        //       ),
-        //     )
-        //   ],
-        // ),
       ),
     );
   }
