@@ -6,14 +6,14 @@ import 'package:hci_parking/controller/map_controller.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
 
-class InfoScreen extends StatefulWidget {
-  const InfoScreen({super.key});
+class InfoHDHScreen extends StatefulWidget {
+  const InfoHDHScreen({super.key});
 
   @override
-  State<InfoScreen> createState() => _InfoScreenState();
+  State<InfoHDHScreen> createState() => _InfoHDHScreenState();
 }
 
-class _InfoScreenState extends State<InfoScreen> {
+class _InfoHDHScreenState extends State<InfoHDHScreen> {
   final MapController _mapController = Get.find();
 
   @override

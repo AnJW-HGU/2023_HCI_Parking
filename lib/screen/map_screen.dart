@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hci_parking/controller/map_controller.dart';
-import 'package:hci_parking/screen/info_screen.dart';
+import 'package:hci_parking/screen/info_hdh_screen.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
 
@@ -49,7 +49,7 @@ class _MapScreenState extends State<MapScreen> {
         ),
         icon: BitmapDescriptor.fromBytes(markerIcon),
         onTap: () {
-          Get.to(const InfoScreen());
+          Get.to(const InfoHDHScreen());
         },
       ));
     });
