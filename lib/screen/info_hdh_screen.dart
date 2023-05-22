@@ -92,109 +92,137 @@ class _InfoHDHScreenState extends State<InfoHDHScreen> {
           ),
         ),
         backgroundColor: whiteColor,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              height: 55.h,
-              color: appBarColor,
-              alignment: Alignment.center,
-              child: Text(
-                'HDH',
-                style: pretendardLight20.copyWith(
-                  color: whiteColor,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 55.h,
+                color: appBarColor,
+                alignment: Alignment.center,
+                child: Text(
+                  '현동홀',
+                  style: pretendardLight20.copyWith(
+                    color: whiteColor,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 18.h,
-            ),
-            Center(
-              child: StreamBuilder(
-                stream: _mapController.streamHDH,
-                builder: (context, snapshot) {
-                  if (snapshot.data != null) {
-                    return Container(
-                      width: 340.w,
-                      height: 172.h,
-                      alignment: Alignment.center,
-                      clipBehavior: Clip.hardEdge,
-                      decoration: BoxDecoration(
-                        color: greyColor1,
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: [
-                          BoxShadow(
-                            color: shadowColor,
-                            offset: const Offset(1, 1),
-                            blurRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: Image.network(
-                        snapshot.data!.img.toString(),
+              SizedBox(
+                height: 18.h,
+              ),
+              Center(
+                child: StreamBuilder(
+                  stream: _mapController.streamHDH,
+                  builder: (context, snapshot) {
+                    if (snapshot.data != null) {
+                      return Container(
                         width: 340.w,
                         height: 172.h,
-                        fit: BoxFit.cover,
-                      ),
-                    );
-                  } else {
-                    return Container(
-                      width: 340.w,
-                      height: 172.h,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: greyColor1,
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: [
-                          BoxShadow(
-                            color: shadowColor,
-                            offset: const Offset(1, 1),
-                            blurRadius: 2,
-                          ),
-                        ],
-                      ),
-                      child: Text(
-                        'No Video or Image',
-                        style: pretendardBlod14,
-                      ),
-                    );
-                  }
-                },
-              ),
-            ),
-            SizedBox(
-              height: 18.h,
-            ),
-            Center(
-              child: StreamBuilder(
-                stream: _mapController.streamHDH,
-                builder: (context, snapshot) {
-                  if (snapshot.data != null) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '주차 가능한 자리 : ${snapshot.data!.empty.toString()}',
-                          style: pretendardMedium14,
+                        alignment: Alignment.center,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                          color: greyColor1,
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: shadowColor,
+                              offset: const Offset(1, 1),
+                              blurRadius: 2,
+                            ),
+                          ],
                         ),
-                        Text(
-                          '저장된 시간 : ${snapshot.data!.today.toString()} ${snapshot.data!.time.toString()}',
-                          style: pretendardMedium14,
+                        child: Image.network(
+                          snapshot.data!.img.toString(),
+                          width: 340.w,
+                          height: 172.h,
+                          fit: BoxFit.cover,
                         ),
-                      ],
-                    );
-                  } else {
-                    return Text(
-                      'No data',
-                      style: pretendardMedium14,
-                    );
-                  }
-                },
+                      );
+                    } else {
+                      return Container(
+                        width: 340.w,
+                        height: 172.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: greyColor1,
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: shadowColor,
+                              offset: const Offset(1, 1),
+                              blurRadius: 2,
+                            ),
+                          ],
+                        ),
+                        child: Text(
+                          'No Video or Image',
+                          style: pretendardBlod14,
+                        ),
+                      );
+                    }
+                  },
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 18.h,
+              ),
+              Center(
+                child: SizedBox(
+                  width: 340.w,
+                  child: StreamBuilder(
+                    stream: _mapController.streamHDH,
+                    builder: (context, snapshot) {
+                      if (snapshot.data != null) {
+                        String year =
+                            snapshot.data!.today?.substring(0, 4) ?? '0000';
+                        String month =
+                            snapshot.data!.today?.substring(4, 6) ?? '00';
+                        String day =
+                            snapshot.data!.today?.substring(6, 8) ?? '00';
+                        List<String> time = snapshot.data!.time?.split(':') ??
+                            ['00', '00', '00'];
+
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '$year년 $month월 $day일 ${time[0]}시 ${time[1]}분',
+                              style: pretendardMedium14,
+                            ),
+                            SizedBox(
+                              height: 3.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '" ${snapshot.data!.empty.toString()} ',
+                                  style: pretendardBlod14.copyWith(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                Text(
+                                  '자리 주차 가능합니다. "',
+                                  style: pretendardMedium18,
+                                ),
+                              ],
+                            ),
+                          ],
+                        );
+                      } else {
+                        return Text(
+                          'No data',
+                          style: pretendardMedium14,
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
