@@ -35,7 +35,7 @@ class _MapScreenState extends State<MapScreen> {
     super.initState();
   }
 
-  Future<Set<Marker>> getmarkers({required String empty}) async {
+  Future<Set<Marker>> getHDHMarker({required String empty}) async {
     const LatLng showLocation = LatLng(36.103783, 129.388944);
 
     final Uint8List markerIcon = await getBytesFromCanvas(empty: empty);
@@ -58,13 +58,14 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<Uint8List> getBytesFromCanvas({required String empty}) async {
+    const double width = 200;
     final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
     final Canvas canvas = Canvas(pictureRecorder);
-    final Paint paint = Paint()..color = primaryColor;
-    const Radius radius = Radius.circular(80);
+    final Paint paint = Paint()..color = primaryColor.withOpacity(0.7);
+    Radius radius = const Radius.circular(width);
     canvas.drawRRect(
         RRect.fromRectAndCorners(
-          Rect.fromLTWH(0.0, 0.0, 80.toDouble(), 80.toDouble()),
+          Rect.fromLTWH(0.0, 0.0, width.toDouble(), width.toDouble()),
           topLeft: radius,
           topRight: radius,
           bottomLeft: radius,
@@ -77,16 +78,18 @@ class _MapScreenState extends State<MapScreen> {
       text: empty,
       style: pretendardRegular20.copyWith(
         color: whiteColor,
-        fontSize: 40,
+        fontSize: 70,
       ),
     );
 
     painter.layout();
     painter.paint(
         canvas,
-        Offset((80 * 0.5) - painter.width * 0.5,
-            (80 * .5) - painter.height * 0.5));
-    final img = await pictureRecorder.endRecording().toImage(80, 80);
+        Offset((width * 0.5) - painter.width * 0.5,
+            (width * .5) - painter.height * 0.5));
+    final img = await pictureRecorder
+        .endRecording()
+        .toImage(width.toInt(), width.toInt());
     final data = await img.toByteData(format: ui.ImageByteFormat.png);
     return data!.buffer.asUint8List();
   }
@@ -164,9 +167,9 @@ class _MapScreenState extends State<MapScreen> {
           stream: _mapController.streamHDH,
           builder: (context, snapshot) {
             if (snapshot.data != null) {
-              getmarkers(empty: snapshot.data!.empty.toString());
+              getHDHMarker(empty: snapshot.data!.empty.toString());
             } else {
-              getmarkers(empty: '0');
+              getHDHMarker(empty: '0');
             }
             return GoogleMap(
               zoomGesturesEnabled: true,
