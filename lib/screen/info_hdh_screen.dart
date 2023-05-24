@@ -2,6 +2,7 @@ import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hci_parking/controller/info_controller.dart';
 import 'package:hci_parking/controller/map_controller.dart';
 import 'package:hci_parking/util/color.dart';
 import 'package:hci_parking/util/test_style.dart';
@@ -15,6 +16,7 @@ class InfoHDHScreen extends StatefulWidget {
 
 class _InfoHDHScreenState extends State<InfoHDHScreen> {
   final MapController _mapController = Get.find();
+  final InfoController _infoController = Get.find();
 
   @override
   void initState() {
@@ -221,10 +223,163 @@ class _InfoHDHScreenState extends State<InfoHDHScreen> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 100.h,
+              ),
+              Center(
+                child: Text(
+                  '< 평균 빈자리 >',
+                  style: pretendardRegular13.copyWith(
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 4.h,
+              ),
+              Center(
+                child: StreamBuilder(
+                  stream: _infoController.streamHDH9,
+                  builder: (context, snapshot) {
+                    if (snapshot.data != null) {
+                      List<String> dataX = ['9-11', '11-13', '13-15', '15-17'];
+                      snapshot.data!.forEach((element) {
+                        _infoController.hdh9 +=
+                            int.parse(element.empty.toString());
+                      });
+                      _infoController.hdh9 /= snapshot.data!.length;
+
+                      return StreamBuilder(
+                        stream: _infoController.streamHDH11,
+                        builder: (context, snapshot) {
+                          if (snapshot.data != null) {
+                            snapshot.data!.forEach((element) {
+                              _infoController.hdh11 +=
+                                  int.parse(element.empty.toString());
+                            });
+                            _infoController.hdh11 /= snapshot.data!.length;
+
+                            return StreamBuilder(
+                              stream: _infoController.streamHDH13,
+                              builder: (context, snapshot) {
+                                if (snapshot.data != null) {
+                                  snapshot.data!.forEach((element) {
+                                    _infoController.hdh13 +=
+                                        int.parse(element.empty.toString());
+                                  });
+                                  _infoController.hdh13 /=
+                                      snapshot.data!.length;
+
+                                  return StreamBuilder(
+                                    stream: _infoController.streamHDH15,
+                                    builder: (context, snapshot) {
+                                      if (snapshot.data != null) {
+                                        snapshot.data!.forEach((element) {
+                                          _infoController.hdh15 += int.parse(
+                                              element.empty.toString());
+                                        });
+                                        _infoController.hdh15 /=
+                                            snapshot.data!.length;
+
+                                        return SizedBox(
+                                          width: 340.w,
+                                          height: 180.h,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              makeGraph(
+                                                data: _infoController.hdh9,
+                                                title: '9-11시',
+                                              ),
+                                              SizedBox(
+                                                width: 10.w,
+                                              ),
+                                              makeGraph(
+                                                data: _infoController.hdh11,
+                                                title: '11-13시',
+                                              ),
+                                              SizedBox(
+                                                width: 10.w,
+                                              ),
+                                              makeGraph(
+                                                data: _infoController.hdh13,
+                                                title: '13-15시',
+                                              ),
+                                              SizedBox(
+                                                width: 10.w,
+                                              ),
+                                              makeGraph(
+                                                data: _infoController.hdh15,
+                                                title: '15-17시',
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      } else {
+                                        return SizedBox(
+                                          width: 340.w,
+                                          height: 180.h,
+                                        );
+                                      }
+                                    },
+                                  );
+                                } else {
+                                  return SizedBox(
+                                    width: 340.w,
+                                    height: 180.h,
+                                  );
+                                }
+                              },
+                            );
+                          } else {
+                            return SizedBox(
+                              width: 340.w,
+                              height: 180.h,
+                            );
+                          }
+                        },
+                      );
+                    } else {
+                      return SizedBox(
+                        width: 340.w,
+                        height: 180.h,
+                      );
+                    }
+                  },
+                ),
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget makeGraph({required var data, required String title}) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          data.toString().substring(0, 3),
+          style: pretendardMedium11,
+        ),
+        Container(
+          width: 40.w,
+          height: data / 4 * 120.h,
+          color: secondaryColor.withOpacity(0.5),
+        ),
+        SizedBox(
+          height: 4.h,
+        ),
+        Text(
+          title,
+          style: pretendardMedium13,
+        ),
+      ],
     );
   }
 }

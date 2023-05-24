@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hci_parking/controller/info_controller.dart';
 import 'package:hci_parking/controller/map_controller.dart';
 import 'package:hci_parking/screen/info_hdh_screen.dart';
 import 'package:hci_parking/util/color.dart';
@@ -20,6 +21,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final MapController _mapController = Get.find();
+  final InfoController _infoController = Get.put(InfoController());
   late GoogleMapController _googleMapController;
   Set<Marker> markers = <Marker>{};
   final markerKey = GlobalKey();
