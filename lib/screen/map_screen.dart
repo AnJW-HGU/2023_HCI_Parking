@@ -148,7 +148,7 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                 ),
                 SizedBox(
-                  width: 90.w,
+                  width: 88.w,
                 ),
                 IconButton(
                   onPressed: () {

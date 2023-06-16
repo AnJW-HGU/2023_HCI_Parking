@@ -38,7 +38,7 @@ class _InfoHDHScreenState extends State<InfoHDHScreen> {
           backgroundColor: whiteColor,
           elevation: 0,
           title: Container(
-            width: 363.w,
+            width: 361.w,
             height: 50.h,
             decoration: BoxDecoration(
               color: greyColor1,
@@ -77,7 +77,7 @@ class _InfoHDHScreenState extends State<InfoHDHScreen> {
                   ),
                 ),
                 SizedBox(
-                  width: 90.w,
+                  width: 88.w,
                 ),
                 IconButton(
                   onPressed: () {
@@ -283,7 +283,7 @@ class _InfoHDHScreenState extends State<InfoHDHScreen> {
 
                                         return SizedBox(
                                           width: 340.w,
-                                          height: 180.h,
+                                          height: 160.h,
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
